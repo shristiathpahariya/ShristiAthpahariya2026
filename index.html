@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-
+ 
 <div class="scene-bg">
   <div class="sky-layer">
     <div class="cloud c1"></div>
@@ -17,26 +17,26 @@
   </div>
   <div class="grass-layer"></div>
 </div>
-
+ 
 <!-- TOP MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track" id="top-track"></div>
 </div>
-
+ 
 <div class="main">
-
+ 
   <div class="name-stamp">
-    <div class="n1">SHRISTI ATHPAHARIYA</div>
+    <div class="n1">YOUR NAME</div>
     <div class="n2">CREATIVE DEV ✦ DESIGNER</div>
   </div>
   <div class="status-chip"><span class="dot"></span>OPEN TO WORK</div>
-
+ 
   <div class="sticker stk-spin">✦</div>
   <div class="sticker stk-tag">PORTFOLIO_2025</div>
-
+ 
   <!-- FOLDER STACK -->
   <div class="folder-stack">
-
+ 
     <!-- TABS -->
     <div class="tab-row">
       <div class="tab tab-projects active" data-tab="projects">
@@ -52,17 +52,17 @@
         <span class="tab-label">RESUME</span>
       </div>
     </div>
-
+ 
     <!-- FOLDER BODY -->
     <div class="folder-body active-projects" id="folder-body">
-
+ 
       <!-- PANEL: Projects (home / default) -->
       <div class="panel active" data-panel="projects">
         <span class="panel-tag">01 · MY WORK</span>
-        <div class="panel-title">HELLO,<br/>I'M <span class="inv">SHRISTI</span><br/>ATHPAHARIYA.</div>
+        <div class="panel-title">HELLO,<br/>I'M <span class="inv">YOUR</span><br/>NAME.</div>
         <p class="panel-sub">
           BUILDING THINGS FOR THE WEB<br/>
-          <b>BASED ON EARTH</b> · EST. 20??
+          <b>BASED ON EARTH</b> · EST. 20XX
         </p>
         <div class="panel-badges">
           <span class="panel-badge">REACT</span>
@@ -72,18 +72,18 @@
           <span class="panel-badge">NODE</span>
         </div>
       </div>
-
+ 
       <!-- PANEL: About -->
       <div class="panel" data-panel="about">
         <div class="wip-stamp">COMING SOON</div>
         <span class="panel-tag">02 · ABOUT ME</span>
         <div class="panel-title">WHO<br/>AM <span class="inv">I?</span></div>
         <p class="panel-sub">
-          DESIGNER · DEVELOPER · HUMAN?<br/>
+          DESIGNER · DEVELOPER · HUMAN<br/>
           <b>PAGE UNDER CONSTRUCTION</b>
         </p>
       </div>
-
+ 
       <!-- PANEL: Contact -->
       <div class="panel" data-panel="contact">
         <div class="wip-stamp">COMING SOON</div>
@@ -94,7 +94,7 @@
           <b>PAGE UNDER CONSTRUCTION</b>
         </p>
       </div>
-
+ 
       <!-- PANEL: Resume -->
       <div class="panel" data-panel="resume">
         <div class="wip-stamp">COMING SOON</div>
@@ -105,20 +105,20 @@
           <b>PAGE UNDER CONSTRUCTION</b>
         </p>
       </div>
-
+ 
     </div><!-- /folder-body -->
-
+ 
   </div><!-- /folder-stack -->
-
-  <div class="sticker stk-hint">↑ click tabs to explore</div>
-
+ 
+  <div class="sticker stk-hint">↑ hover tabs to explore · click to open</div>
+ 
 </div><!-- /main -->
-
+ 
 <!-- BOTTOM MARQUEE -->
 <div class="marquee-wrap bot">
   <div class="marquee-track" id="bot-track"></div>
 </div>
-
+ 
 <script>
   /* ── MARQUEE ── */
   const topItems = ['PORTFOLIO','CREATIVE DEV','UI DESIGN','OPEN TO WORK','WEB DESIGN','MOTION','FRONTEND','AVAILABLE NOW','HIRE ME','EXPLORE'];
@@ -130,26 +130,35 @@
   }
   document.getElementById('top-track').innerHTML = buildTrack(topItems,'✦');
   document.getElementById('bot-track').innerHTML  = buildTrack(botItems,'★');
-
-  /* ── TABS ── */
+ 
+  /* ── TABS — hover to reveal, click to navigate ── */
   const tabs    = document.querySelectorAll('.tab');
   const panels  = document.querySelectorAll('.panel');
   const body    = document.getElementById('folder-body');
-
+  const tabRow  = document.querySelector('.tab-row');
+ 
+  function activateTab(key) {
+    tabs.forEach(t => t.classList.remove('active'));
+    const tab = document.querySelector(`.tab[data-tab="${key}"]`);
+    if (tab) tab.classList.add('active');
+    body.className = `folder-body active-${key}`;
+    panels.forEach(p => p.classList.remove('active'));
+    document.querySelector(`.panel[data-panel="${key}"]`).classList.add('active');
+  }
+ 
+  // hover → show that tab's panel
+  tabs.forEach(tab => {
+    tab.addEventListener('mouseenter', () => activateTab(tab.dataset.tab));
+  });
+ 
+  // mouse leaves the whole tab row → snap back to projects (home)
+  tabRow.addEventListener('mouseleave', () => activateTab('projects'));
+ 
+  // click → navigate to page (for non-home tabs)
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      const key = tab.dataset.tab;
-
-      // update tabs
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      // update folder body bg
-      body.className = `folder-body active-${key}`;
-
-      // update panels
-      panels.forEach(p => p.classList.remove('active'));
-      document.querySelector(`.panel[data-panel="${key}"]`).classList.add('active');
+      const hrefs = { about: 'about.html', contact: 'contact.html', resume: 'resume.html' };
+      if (hrefs[tab.dataset.tab]) window.location.href = hrefs[tab.dataset.tab];
     });
   });
 </script>

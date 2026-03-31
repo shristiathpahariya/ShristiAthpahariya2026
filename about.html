@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Portfolio ✦</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&family=Unbounded:wght@400;700;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles/about.css"/>
+</head>
+<body>
+
+<!-- background doodles -->
+<div class="doodle d1">✦</div>
+<div class="doodle d2">★</div>
+<div class="doodle d3">✿</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="m-track"></div>
+</div>
+
+<a class="back-btn" href="portfolio.html">← BACK</a>
+
+<!-- SCRAPBOOK BOARD -->
+<div class="board">
+
+  <!-- ── BIO ── -->
+  <div class="card card-bio">
+    <div class="tape tape-tl"></div>
+    <div class="tape tape-tr"></div>
+
+    <!-- photo slot -->
+    <div class="bio-photo">
+      <span>YOUR PHOTO HERE</span>
+    </div>
+
+    <span class="section-stamp">01 · BIO</span>
+    <h1 class="bio-header">YOUR<br/><span>NAME</span></h1>
+    <div class="bio-role">Creative Dev & Designer</div>
+
+    <div class="bio-text">
+      <p>Hey! I'm a designer and developer who loves building things for the web — from playful interfaces to polished products.</p>
+      <p>I care a lot about the details: the right animation, the perfect spacing, the moment a layout just clicks.</p>
+      <p>When I'm not at my screen I'm probably [your hobby here] or hunting for the next great playlist.</p>
+    </div>
+
+    <div class="bio-location">📍 Your City, Earth</div>
+
+    <!-- rubber stamp -->
+    <div class="stamp" style="position:absolute;bottom:20px;right:18px;color:var(--red);font-size:.6rem;transform:rotate(8deg);">
+      AVAILABLE
+    </div>
+  </div>
+
+  <!-- ── SKILLS ── -->
+  <div class="card card-skills">
+    <div class="tape tape-top"></div>
+
+    <span class="section-stamp">02 · SKILLS & TOOLS</span>
+    <div class="skills-title">WHAT I WORK WITH</div>
+
+    <div class="skill-groups">
+
+      <div class="skill-group">
+        <div class="skill-group-label">Frontend</div>
+        <div class="skill-pills">
+          <div class="skill-pill">React <div class="skill-bar"><div class="skill-bar-fill" style="width:90%;animation-delay:.1s"></div></div></div>
+          <div class="skill-pill">CSS / Tailwind <div class="skill-bar"><div class="skill-bar-fill" style="width:95%;animation-delay:.2s"></div></div></div>
+          <div class="skill-pill">TypeScript <div class="skill-bar"><div class="skill-bar-fill" style="width:75%;animation-delay:.3s"></div></div></div>
+          <div class="skill-pill">Next.js <div class="skill-bar"><div class="skill-bar-fill" style="width:80%;animation-delay:.4s"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Design</div>
+        <div class="skill-pills">
+          <div class="skill-pill">Figma <div class="skill-bar"><div class="skill-bar-fill" style="width:92%;animation-delay:.15s"></div></div></div>
+          <div class="skill-pill">Motion / GSAP <div class="skill-bar"><div class="skill-bar-fill" style="width:70%;animation-delay:.25s"></div></div></div>
+          <div class="skill-pill">Illustrator <div class="skill-bar"><div class="skill-bar-fill" style="width:65%;animation-delay:.35s"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Backend / Other</div>
+        <div class="skill-pills">
+          <div class="skill-pill">Node.js <div class="skill-bar"><div class="skill-bar-fill" style="width:72%;animation-delay:.2s"></div></div></div>
+          <div class="skill-pill">Git / GitHub <div class="skill-bar"><div class="skill-bar-fill" style="width:88%;animation-delay:.3s"></div></div></div>
+          <div class="skill-pill">Supabase <div class="skill-bar"><div class="skill-bar-fill" style="width:60%;animation-delay:.4s"></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── FUN FACTS ── -->
+  <div class="card card-facts">
+    <div class="tape tape-corner"></div>
+
+    <span class="section-stamp">03 · FUN FACTS</span>
+    <div class="facts-title">THINGS ABOUT ME</div>
+
+    <div class="fact-list">
+      <div class="fact"><span class="fact-icon">☕</span><span>Runs on coffee and lo-fi music</span></div>
+      <div class="fact"><span class="fact-icon">🎮</span><span>Gamer at heart — UI should feel like a game</span></div>
+      <div class="fact"><span class="fact-icon">📚</span><span>Currently reading: [your book]</span></div>
+      <div class="fact"><span class="fact-icon">🌱</span><span>Always learning something new — right now it's [skill]</span></div>
+      <div class="fact"><span class="fact-icon">✦</span><span>Obsessed with typography and motion details</span></div>
+      <div class="fact"><span class="fact-icon">🗺️</span><span>Dream destination: Japan (and I'll design a site about it)</span></div>
+    </div>
+  </div>
+
+  <!-- ── TIMELINE ── -->
+  <div class="card card-timeline">
+    <div class="tape tape-top"></div>
+
+    <span class="section-stamp">04 · TIMELINE</span>
+    <div class="timeline-title">HOW I GOT HERE</div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-year">2024 — NOW</span>
+        <span class="tl-role">Freelance Designer & Dev</span>
+        <span class="tl-place">Building portfolio & client work</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-year">2023</span>
+        <span class="tl-role">Frontend Developer</span>
+        <span class="tl-place">Company / Project Name</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-year">2022</span>
+        <span class="tl-role">UI/UX Intern</span>
+        <span class="tl-place">Studio / Agency Name</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <span class="tl-year">2020</span>
+        <span class="tl-role">Started Coding</span>
+        <span class="tl-place">First HTML file. No going back.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CURRENTLY ── -->
+  <div class="card card-now">
+    <div class="tape tape-tl"></div>
+    <div class="now-label">RIGHT NOW</div>
+    <div class="now-items">
+      <div class="now-item">
+        <span class="now-item-label">Building</span>
+        <span class="now-item-val">This Portfolio ✦</span>
+      </div>
+      <div class="now-item">
+        <span class="now-item-label">Learning</span>
+        <span class="now-item-val">Your current skill</span>
+      </div>
+      <div class="now-item">
+        <span class="now-item-label">Listening to</span>
+        <span class="now-item-val">Your fav artist</span>
+      </div>
+      <div class="now-item">
+        <span class="now-item-label">Mood</span>
+        <span class="now-item-val">Creative & caffeinated</span>
+      </div>
+      <div class="now-item">
+        <span class="now-item-label">Status</span>
+        <span class="now-item-val" style="color:var(--red);font-weight:700;">Open to work 🟢</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /board -->
+
+<div class="scroll-hint">SCROLL ↓</div>
+
+<script>
+  const mItems = ['ABOUT ME','CREATIVE DEV','UI DESIGN','OPEN TO WORK','SCRAPBOOK','Y2K VIBES','WHO AM I','FUN FACTS','TIMELINE','SKILLS'];
+  function buildTrack(items) {
+    return (items.map(t =>
+      `<span class="marquee-item"><span class="t">${t}</span><span class="s">✦</span></span>`
+    ).join('')).repeat(2);
+  }
+  document.getElementById('m-track').innerHTML = buildTrack(mItems);
+</script>
+</body>
+</html>
