@@ -5,18 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Portfolio ✦</title>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
  
-<div class="scene-bg">
-  <div class="sky-layer">
-    <div class="cloud c1"></div>
-    <div class="cloud c2"></div>
-    <div class="cloud c3"></div>
-  </div>
-  <div class="grass-layer"></div>
+<!-- GRAIN -->
+<div id="grain"></div>
+ 
+<!-- CUSTOM CURSOR -->
+<div id="cursor">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L13.5 9.5L21 8L15 13.5L18.5 21L12 16.5L5.5 21L9 13.5L3 8L10.5 9.5Z"
+      fill="#e83a2f" stroke="#0e0e0a" stroke-width="1.5"/>
+  </svg>
 </div>
+ 
+<!-- SCENE BG -->
+<div class="scene-bg">
+  <div class="sky-layer" id="sky"></div>
+  <div class="grass-layer"></div>
+  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
+  <div class="cloud c3"></div>
+</div>
+ 
+<!-- SVG GRASS BLADES -->
+<svg id="grass-svg" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- generate many blades via script -->
+</svg>
+ 
+<!-- FLOATING DOODLES (parallax) -->
+<div class="doodle" id="d1" style="font-size:2.4rem;color:#1a4fa8;opacity:0.18;top:18%;left:8%;">✦</div>
+<div class="doodle" id="d2" style="font-size:1.8rem;color:#e83a2f;opacity:0.2;top:30%;right:10%;">★</div>
+<div class="doodle" id="d3" style="font-size:3rem;color:#3d8a00;opacity:0.14;top:55%;left:5%;">✿</div>
+<div class="doodle" id="d4" style="font-size:1.5rem;color:#b5256e;opacity:0.22;top:20%;right:22%;">◆</div>
+<div class="doodle" id="d5" style="font-size:2rem;color:#e8b84b;opacity:0.2;top:65%;right:8%;">✦</div>
+<div class="doodle" id="d6" style="font-size:1.4rem;color:#1a4fa8;opacity:0.16;top:72%;left:14%;">●</div>
  
 <!-- TOP MARQUEE -->
 <div class="marquee-wrap">
@@ -24,7 +49,6 @@
 </div>
  
 <div class="main">
- 
   <div class="name-stamp">
     <div class="n1">YOUR NAME</div>
     <div class="n2">CREATIVE DEV ✦ DESIGNER</div>
@@ -35,35 +59,20 @@
   <div class="sticker stk-tag">PORTFOLIO_2025</div>
  
   <!-- FOLDER STACK -->
-  <div class="folder-stack">
- 
-    <!-- TABS -->
-    <div class="tab-row">
-      <div class="tab tab-projects active" data-tab="projects">
-        <span class="tab-label">PROJECTS</span>
-      </div>
-      <div class="tab tab-about" data-tab="about">
-        <span class="tab-label">ABOUT</span>
-      </div>
-      <div class="tab tab-contact" data-tab="contact">
-        <span class="tab-label">CONTACT</span>
-      </div>
-      <div class="tab tab-resume" data-tab="resume">
-        <span class="tab-label">RESUME</span>
-      </div>
+  <div class="folder-stack" id="folder-stack">
+    <div class="tab-row" id="tab-row">
+      <div class="tab tab-projects active" data-tab="projects"><span class="tab-label">PROJECTS</span></div>
+      <div class="tab tab-about"    data-tab="about">   <span class="tab-label">ABOUT</span></div>
+      <div class="tab tab-contact"  data-tab="contact"> <span class="tab-label">CONTACT</span></div>
+      <div class="tab tab-resume"   data-tab="resume">  <span class="tab-label">RESUME</span></div>
     </div>
  
-    <!-- FOLDER BODY -->
     <div class="folder-body active-projects" id="folder-body">
  
-      <!-- PANEL: Projects (home / default) -->
       <div class="panel active" data-panel="projects">
         <span class="panel-tag">01 · MY WORK</span>
         <div class="panel-title">HELLO,<br/>I'M <span class="inv">YOUR</span><br/>NAME.</div>
-        <p class="panel-sub">
-          BUILDING THINGS FOR THE WEB<br/>
-          <b>BASED ON EARTH</b> · EST. 20XX
-        </p>
+        <p class="panel-sub">BUILDING THINGS FOR THE WEB<br/><b>BASED ON EARTH</b> · EST. 20XX</p>
         <div class="panel-badges">
           <span class="panel-badge">REACT</span>
           <span class="panel-badge">CSS</span>
@@ -73,46 +82,32 @@
         </div>
       </div>
  
-      <!-- PANEL: About -->
       <div class="panel" data-panel="about">
         <div class="wip-stamp">COMING SOON</div>
         <span class="panel-tag">02 · ABOUT ME</span>
         <div class="panel-title">WHO<br/>AM <span class="inv">I?</span></div>
-        <p class="panel-sub">
-          DESIGNER · DEVELOPER · HUMAN<br/>
-          <b>PAGE UNDER CONSTRUCTION</b>
-        </p>
+        <p class="panel-sub">DESIGNER · DEVELOPER · HUMAN<br/><b>PAGE UNDER CONSTRUCTION</b></p>
       </div>
  
-      <!-- PANEL: Contact -->
       <div class="panel" data-panel="contact">
         <div class="wip-stamp">COMING SOON</div>
         <span class="panel-tag">03 · CONTACT</span>
         <div class="panel-title">SAY<br/><span class="inv">HELLO</span></div>
-        <p class="panel-sub">
-          DROP ME A LINE ANYTIME<br/>
-          <b>PAGE UNDER CONSTRUCTION</b>
-        </p>
+        <p class="panel-sub">DROP ME A LINE ANYTIME<br/><b>PAGE UNDER CONSTRUCTION</b></p>
       </div>
  
-      <!-- PANEL: Resume -->
       <div class="panel" data-panel="resume">
         <div class="wip-stamp">COMING SOON</div>
         <span class="panel-tag">04 · RESUME</span>
         <div class="panel-title">MY<br/><span class="inv">CV</span></div>
-        <p class="panel-sub">
-          EXPERIENCE · SKILLS · EDUCATION<br/>
-          <b>PAGE UNDER CONSTRUCTION</b>
-        </p>
+        <p class="panel-sub">EXPERIENCE · SKILLS · EDUCATION<br/><b>PAGE UNDER CONSTRUCTION</b></p>
       </div>
  
-    </div><!-- /folder-body -->
- 
-  </div><!-- /folder-stack -->
+    </div>
+  </div>
  
   <div class="sticker stk-hint">↑ hover tabs to explore · click to open</div>
- 
-</div><!-- /main -->
+</div>
  
 <!-- BOTTOM MARQUEE -->
 <div class="marquee-wrap bot">
@@ -120,47 +115,206 @@
 </div>
  
 <script>
-  /* ── MARQUEE ── */
-  const topItems = ['PORTFOLIO','CREATIVE DEV','UI DESIGN','OPEN TO WORK','WEB DESIGN','MOTION','FRONTEND','AVAILABLE NOW','HIRE ME','EXPLORE'];
-  const botItems = ['HAND CODED','© 2025','MADE WITH LOVE','NO TEMPLATES','PIXEL PERFECT','COFFEE POWERED','BUG FREE*','*MOSTLY','Y2K VIBES','BUILD STUFF'];
-  function buildTrack(items, star) {
-    return (items.map(t =>
-      `<span class="marquee-item"><span class="t">${t}</span><span class="s">${star}</span></span>`
-    ).join('')).repeat(2);
+/* ═══════════════════════════════
+   MARQUEE
+═══════════════════════════════ */
+const topItems = ['PORTFOLIO','CREATIVE DEV','UI DESIGN','OPEN TO WORK','WEB DESIGN','MOTION','FRONTEND','AVAILABLE NOW','HIRE ME','EXPLORE'];
+const botItems = ['HAND CODED','© 2025','MADE WITH LOVE','NO TEMPLATES','PIXEL PERFECT','COFFEE POWERED','BUG FREE*','*MOSTLY','Y2K VIBES','BUILD STUFF'];
+function buildTrack(items, star) {
+  return (items.map(t =>
+    `<span class="marquee-item"><span class="t">${t}</span><span class="s">${star}</span></span>`
+  ).join('')).repeat(2);
+}
+document.getElementById('top-track').innerHTML = buildTrack(topItems,'✦');
+document.getElementById('bot-track').innerHTML  = buildTrack(botItems,'★');
+ 
+/* ═══════════════════════════════
+   GRASS BLADES SVG
+═══════════════════════════════ */
+(function buildGrass() {
+  const svg = document.getElementById('grass-svg');
+  const count = 60;
+  const colors = ['#2a7a10','#3d9a18','#50b820','#6acf30','#4aaa20'];
+  let html = '';
+  for (let i = 0; i < count; i++) {
+    const x     = (i / count) * 1440 + Math.random() * 20;
+    const h     = 40 + Math.random() * 70;
+    const w     = 4 + Math.random() * 6;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const delay = (Math.random() * 3).toFixed(2);
+    const dur   = (2.5 + Math.random() * 2).toFixed(2);
+    const bend  = (Math.random() > 0.5 ? 1 : -1) * (3 + Math.random() * 8);
+    html += `<path class="blade" d="M${x},120 Q${x + bend},${120 - h * 0.6} ${x + bend * 0.4},${120 - h}"
+      stroke="${color}" stroke-width="${w}" fill="none" stroke-linecap="round"
+      style="animation-delay:${delay}s;animation-duration:${dur}s;transform-origin:${x}px 120px"/>`;
   }
-  document.getElementById('top-track').innerHTML = buildTrack(topItems,'✦');
-  document.getElementById('bot-track').innerHTML  = buildTrack(botItems,'★');
+  svg.innerHTML = html;
+})();
  
-  /* ── TABS — hover to reveal, click to navigate ── */
-  const tabs    = document.querySelectorAll('.tab');
-  const panels  = document.querySelectorAll('.panel');
-  const body    = document.getElementById('folder-body');
-  const tabRow  = document.querySelector('.tab-row');
+/* ═══════════════════════════════
+   CUSTOM CURSOR
+═══════════════════════════════ */
+const cursor = document.getElementById('cursor');
+let mx = window.innerWidth/2, my = window.innerHeight/2;
  
-  function activateTab(key) {
-    tabs.forEach(t => t.classList.remove('active'));
-    const tab = document.querySelector(`.tab[data-tab="${key}"]`);
-    if (tab) tab.classList.add('active');
-    body.className = `folder-body active-${key}`;
-    panels.forEach(p => p.classList.remove('active'));
-    document.querySelector(`.panel[data-panel="${key}"]`).classList.add('active');
-  }
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  gsap.to(cursor, { x: mx, y: my, duration: 0.12, ease: 'power2.out' });
+});
  
-  // hover → show that tab's panel
-  tabs.forEach(tab => {
-    tab.addEventListener('mouseenter', () => activateTab(tab.dataset.tab));
+/* ═══════════════════════════════
+   CURSOR TRAIL
+═══════════════════════════════ */
+const TRAIL_COUNT = 12;
+const trailColors = ['#e83a2f','#f5d278','#5ba8d8','#b8ff50','#f07aad','#ffffff'];
+const trailDots = [];
+ 
+for (let i = 0; i < TRAIL_COUNT; i++) {
+  const dot = document.createElement('div');
+  dot.className = 'trail-dot';
+  const size = 14 - i * 0.8;
+  dot.style.cssText = `width:${size}px;height:${size}px;background:${trailColors[i % trailColors.length]};opacity:${0.9 - i * 0.06};`;
+  document.body.appendChild(dot);
+  trailDots.push({ el: dot, x: mx, y: my });
+}
+ 
+function animateTrail() {
+  let lx = mx, ly = my;
+  trailDots.forEach((t, i) => {
+    const speed = 0.28 - i * 0.015;
+    t.x += (lx - t.x) * speed;
+    t.y += (ly - t.y) * speed;
+    gsap.set(t.el, { x: t.x, y: t.y });
+    lx = t.x; ly = t.y;
   });
+  requestAnimationFrame(animateTrail);
+}
+animateTrail();
  
-  // mouse leaves the whole tab row → snap back to projects (home)
-  tabRow.addEventListener('mouseleave', () => activateTab('projects'));
+/* cursor scale on hover interactive elements */
+document.querySelectorAll('.tab, .panel-badge, .marquee-wrap, .name-stamp, .status-chip').forEach(el => {
+  el.addEventListener('mouseenter', () => gsap.to(cursor, { scale: 1.8, duration: 0.2 }));
+  el.addEventListener('mouseleave', () => gsap.to(cursor, { scale: 1,   duration: 0.2 }));
+});
  
-  // click → navigate to page (for non-home tabs)
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const hrefs = { about: 'about.html', contact: 'contact.html', resume: 'resume.html' };
-      if (hrefs[tab.dataset.tab]) window.location.href = hrefs[tab.dataset.tab];
+/* ═══════════════════════════════
+   PARALLAX DOODLES
+═══════════════════════════════ */
+const doodles = [
+  { el: document.getElementById('d1'), sx: 0.018, sy: 0.012 },
+  { el: document.getElementById('d2'), sx:-0.022, sy: 0.015 },
+  { el: document.getElementById('d3'), sx: 0.012, sy:-0.018 },
+  { el: document.getElementById('d4'), sx:-0.016, sy: 0.010 },
+  { el: document.getElementById('d5'), sx: 0.020, sy:-0.012 },
+  { el: document.getElementById('d6'), sx:-0.010, sy: 0.020 },
+];
+let px = 0, py = 0;
+document.addEventListener('mousemove', e => {
+  px = e.clientX - window.innerWidth  / 2;
+  py = e.clientY - window.innerHeight / 2;
+});
+(function animateDoodles() {
+  doodles.forEach(d => {
+    gsap.to(d.el, {
+      x: px * d.sx * 40,
+      y: py * d.sy * 40,
+      duration: 1.8, ease: 'power1.out'
     });
   });
+  requestAnimationFrame(animateDoodles);
+})();
+ 
+/* ═══════════════════════════════
+   FOLDER STACK MOUSE TILT
+═══════════════════════════════ */
+const stack = document.getElementById('folder-stack');
+stack.addEventListener('mousemove', e => {
+  const r   = stack.getBoundingClientRect();
+  const rx  = ((e.clientX - r.left) / r.width  - 0.5) * 6;
+  const ry  = ((e.clientY - r.top)  / r.height - 0.5) * -5;
+  gsap.to(stack, { rotateY: rx, rotateX: ry, duration: 0.4, ease: 'power2.out', transformPerspective: 800 });
+});
+stack.addEventListener('mouseleave', () => {
+  gsap.to(stack, { rotateY: 0, rotateX: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' });
+});
+ 
+/* ═══════════════════════════════
+   SKY TINT ON TAB SWITCH
+═══════════════════════════════ */
+const skyTints = {
+  projects: 'linear-gradient(180deg, #8ecff0 0%, #d0eeff 100%)',
+  about:    'linear-gradient(180deg, #f8c0d8 0%, #fde8f0 100%)',
+  contact:  'linear-gradient(180deg, #a8e8a0 0%, #d8f8d0 100%)',
+  resume:   'linear-gradient(180deg, #f8a090 0%, #fdd8d0 100%)',
+};
+ 
+/* ═══════════════════════════════
+   ENTRANCE ANIMATION
+═══════════════════════════════ */
+const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+tl.from('.cloud',       { opacity:0, duration:1.5, stagger:0.2 }, 0)
+  .from('#grass-svg .blade', { scaleY:0, duration:1.2, stagger:0.01, ease:'back.out(1.4)', transformOrigin:'bottom center' }, 0.2)
+  .from(doodles.map(d=>d.el), { scale:0, opacity:0, duration:0.5, stagger:0.08, ease:'back.out(2)' }, 0.3)
+  .from('.name-stamp',  { x:-40,  opacity:0, duration:0.7 }, 0.3)
+  .from('.status-chip', { x:40,   opacity:0, duration:0.7 }, 0.3)
+  .from('.stk-tag',     { scale:0, opacity:0, duration:0.5, ease:'back.out(2)' }, 0.5)
+  .from('.stk-spin',    { scale:0, opacity:0, duration:0.5, ease:'back.out(2)' }, 0.6)
+  .from('.tab',         { y:-30, opacity:0, duration:0.5, stagger:0.1, ease:'back.out(1.6)' }, 0.65)
+  .from('.folder-body', { y:50, opacity:0, duration:0.7, ease:'back.out(1.3)' }, 0.75)
+  .from('.stk-hint',    { opacity:0, duration:0.6 }, 1.2);
+ 
+/* ═══════════════════════════════
+   TABS
+═══════════════════════════════ */
+const tabs   = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
+const body   = document.getElementById('folder-body');
+const tabRow = document.getElementById('tab-row');
+const sky    = document.getElementById('sky');
+ 
+gsap.set(document.querySelector('.panel[data-panel="projects"]'), { opacity:1, y:0 });
+ 
+let currentKey = 'projects';
+ 
+function activateTab(key) {
+  if (key === currentKey) return;
+  currentKey = key;
+ 
+  tabs.forEach(t => t.classList.remove('active'));
+  const activeTab = document.querySelector(`.tab[data-tab="${key}"]`);
+  if (activeTab) activeTab.classList.add('active');
+ 
+  body.className = `folder-body active-${key}`;
+ 
+  // folder wiggle
+  gsap.fromTo(stack,
+    { x: -4 },
+    { x: 0, duration: 0.4, ease: 'elastic.out(1, 0.4)' }
+  );
+ 
+  // panel swap
+  const outPanel = document.querySelector('.panel.active');
+  const inPanel  = document.querySelector(`.panel[data-panel="${key}"]`);
+  if (outPanel) { gsap.killTweensOf(outPanel); gsap.set(outPanel, { opacity:0, y:-10 }); outPanel.classList.remove('active'); }
+  gsap.killTweensOf(inPanel);
+  inPanel.classList.add('active');
+  gsap.fromTo(inPanel, { opacity:0, y:18 }, { opacity:1, y:0, duration:0.4, ease:'power3.out' });
+}
+ 
+tabs.forEach(tab => tab.addEventListener('mouseenter', () => activateTab(tab.dataset.tab)));
+tabRow.addEventListener('mouseleave', () => activateTab('projects'));
+ 
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const hrefs = { about:'about.html', contact:'contact.html', resume:'resume.html' };
+    if (hrefs[tab.dataset.tab]) {
+      gsap.to('.folder-stack', {
+        y:-20, opacity:0, duration:0.3, ease:'power2.in',
+        onComplete: () => { window.location.href = hrefs[tab.dataset.tab]; }
+      });
+    }
+  });
+});
 </script>
 </body>
 </html>
