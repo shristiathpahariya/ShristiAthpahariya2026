@@ -1,3 +1,4 @@
+
   :root {
     --bg:        #e8dfc8;
     --paper:     #f5f0df;
@@ -175,12 +176,12 @@
   }
   .sticky:active { cursor:grabbing; }
   .sticky-icon { font-size:1.2rem; }
-  .sticky.s1 { background:#fde98a; top:0;   left:0;   transform:rotate(-4deg); }
-  .sticky.s2 { background:#c8eab8; top:10px; left:105px; transform:rotate(3deg); }
-  .sticky.s3 { background:#b8d8f8; top:120px; left:8px;  transform:rotate(2deg); }
-  .sticky.s4 { background:#f9c0d0; top:130px; left:110px; transform:rotate(-3deg); }
-  .sticky.s5 { background:#fde98a; top:240px; left:20px;  transform:rotate(-2deg); }
-  .sticky.s6 { background:#c8eab8; top:250px; left:120px; transform:rotate(4deg); }
+  .sticky.s1 { background:#fde98a; top:0;    left:0;   }
+  .sticky.s2 { background:#c8eab8; top:10px; left:105px; }
+  .sticky.s3 { background:#b8d8f8; top:120px; left:8px; }
+  .sticky.s4 { background:#f9c0d0; top:130px; left:110px; }
+  .sticky.s5 { background:#fde98a; top:240px; left:20px; }
+  .sticky.s6 { background:#c8eab8; top:250px; left:120px; }
  
   /* ── TIMELINE CARD ── */
   .card-timeline { grid-column:3; grid-row:2; background:var(--green); padding:24px 20px 24px; margin:10px 0 20px 6px; }
