@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Resume — Portfolio ✦</title>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="stylesheet" href="styles/resume.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&family=Unbounded:wght@400;700;900&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <div id="grain"></div>
+<div id="cursor">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L13.5 9.5L21 8L15 13.5L18.5 21L12 16.5L5.5 21L9 13.5L3 8L10.5 9.5Z" fill="#e83a2f" stroke="#0e0e0a" stroke-width="1.5"/></svg>
+</div>
+ 
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="m-track"></div>
+</div>
+ 
+<!-- TOP BAR -->
+<div class="top-bar">
+  <a class="back-btn" href="index.html">← BACK</a>
+  <button class="dl-btn" id="dl-btn">⬇ DOWNLOAD PDF</button>
+</div>
+ 
+<div class="page-wrap">
+<div class="resume-sheet" id="resume-sheet">
+  <div class="tape t-tl"></div>
+  <div class="tape t-tr"></div>
+ 
+  <!-- ══ HEADER ══ -->
+  <div class="r-header">
+    <div>
+      <div class="r-name">YOUR<br/><span>NAME</span></div>
+      <div class="r-role">Creative Developer & Designer</div>
+    </div>
+    <div class="r-contacts">
+      <a class="r-contact-item" href="mailto:shristiathpahariya@email.com">
+        <span class="ci-icon">@</span> myemail
+      </a>
+      <a class="r-contact-item" href="https://github.com/shristiathpahariya" target="_blank">
+        <span class="ci-icon">GH</span> mygithub
+      </a>
+      <a class="r-contact-item" href="https://linkedin.com/in/shristiathpahariya" target="_blank">
+        <span class="ci-icon">in</span> mylinkedin
+      </a>
+      <a class="r-contact-item" href="https://shristiathpahariya.github.io/ShristiAthpahariya2026/contact.html">
+        <span class="ci-icon">🌐</span> myportfolio
+      </a>
+    </div>
+  </div>
+ 
+  <!-- ══ BODY ══ -->
+  <div class="r-body">
+ 
+    <!-- ── LEFT COL ── -->
+    <div class="r-left">
+ 
+      <!-- EXPERIENCE -->
+      <div class="r-section">
+        <div class="r-section-title">Work Experience</div>
+        <div class="r-section has-timeline">
+ 
+          <div class="r-item">
+            <div class="r-item-header">
+              <span class="r-item-title">Frontend Developer</span>
+              <span class="r-item-date">2023 — NOW</span>
+            </div>
+            <div class="r-item-sub">Company Name · Your City</div>
+            <div class="r-item-desc">Built and maintained responsive web applications. Led the redesign of the main dashboard, improving load time by 40%. Collaborated closely with design and backend teams.</div>
+            <div class="r-item-tags">
+              <span class="r-tag">React</span>
+              <span class="r-tag">TypeScript</span>
+              <span class="r-tag">CSS</span>
+              <span class="r-tag">Figma</span>
+            </div>
+          </div>
+ 
+          <div class="r-item">
+            <div class="r-item-header">
+              <span class="r-item-title">UI/UX Design Intern</span>
+              <span class="r-item-date">2022</span>
+            </div>
+            <div class="r-item-sub">Studio / Agency Name · Remote</div>
+            <div class="r-item-desc">Designed interfaces for 3 client projects from wireframe to handoff. Created a component library used across 5 products. Presented weekly to stakeholders.</div>
+            <div class="r-item-tags">
+              <span class="r-tag">Figma</span>
+              <span class="r-tag">Prototyping</span>
+              <span class="r-tag">User Research</span>
+            </div>
+          </div>
+ 
+          <div class="r-item">
+            <div class="r-item-header">
+              <span class="r-item-title">Freelance Web Developer</span>
+              <span class="r-item-date">2020 — 2022</span>
+            </div>
+            <div class="r-item-sub">Self-employed · Remote</div>
+            <div class="r-item-desc">Delivered 10+ websites for small businesses and creatives. Handled everything from design to deployment.</div>
+            <div class="r-item-tags">
+              <span class="r-tag">HTML/CSS</span>
+              <span class="r-tag">JavaScript</span>
+              <span class="r-tag">WordPress</span>
+            </div>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- PROJECTS -->
+      <div class="r-section">
+        <div class="r-section-title">Projects</div>
+ 
+        <div class="r-project">
+          <div class="r-project-header">
+            <span class="r-project-name">This Portfolio ✦</span>
+            <a class="r-project-link" href="#">VIEW →</a>
+          </div>
+          <div class="r-project-desc">Y2K-themed personal portfolio with GSAP animations, scrapbook about page, envelope contact page, and draggable interactive elements.</div>
+          <div class="r-item-tags">
+            <span class="r-tag">HTML</span><span class="r-tag">CSS</span><span class="r-tag">GSAP</span><span class="r-tag">Vanilla JS</span>
+          </div>
+        </div>
+ 
+        <div class="r-project">
+          <div class="r-project-header">
+            <span class="r-project-name">Project Two</span>
+            <a class="r-project-link" href="#">VIEW →</a>
+          </div>
+          <div class="r-project-desc">Short description of what you built, the problem it solved, and any results or metrics worth mentioning.</div>
+          <div class="r-item-tags">
+            <span class="r-tag">React</span><span class="r-tag">Node.js</span><span class="r-tag">Supabase</span>
+          </div>
+        </div>
+ 
+        <div class="r-project">
+          <div class="r-project-header">
+            <span class="r-project-name">Project Three</span>
+            <a class="r-project-link" href="#">VIEW →</a>
+          </div>
+          <div class="r-project-desc">Short description of what you built, the problem it solved, and any results or metrics worth mentioning.</div>
+          <div class="r-item-tags">
+            <span class="r-tag">Next.js</span><span class="r-tag">Figma</span><span class="r-tag">TypeScript</span>
+          </div>
+        </div>
+ 
+      </div>
+ 
+    </div><!-- /r-left -->
+ 
+    <!-- ── RIGHT COL ── -->
+    <div class="r-right">
+ 
+      <!-- SKILLS -->
+      <div class="r-section">
+        <div class="r-section-title">Skills</div>
+ 
+        <div class="r-skills-group">
+          <div class="r-skills-group-label">Frontend</div>
+          <div class="r-skill-row"><span class="r-skill-name">React</span><div class="r-skill-bar"><div class="r-skill-fill" data-pct="90"></div></div></div>
+          <div class="r-skill-row"><span class="r-skill-name">CSS</span><div class="r-skill-bar"><div class="r-skill-fill" data-pct="95"></div></div></div>
+          <div class="r-skill-row"><span class="r-skill-name">TypeScript</span><div class="r-skill-bar"><div class="r-skill-fill" data-pct="75"></div></div></div>
+          <div class="r-skill-row"><span class="r-skill-name">Next.js</span><div class="r-skill-bar"><div class="r-skill-fill" data-pct="80"></div></div></div>
+        </div>
+ 
+        <div class="r-skills-group">
+          <div class="r-skills-group-label">Design</div>
+          <div class="r-skill-row"><span class="r-skill-name">Figma</span><div class="r-skill-bar"><div class="r-skill-fill" data-pct="92"></div></div></div>
+          <div class="r-skill-row"><span class="r-skill-name">GSAP</span><div class="r-skill-bar"><div class="r-skill-fill" data-pct="70"></div></div></div>
+          <div class="r-skill-row"><span class="r-skill-name">Illustrator</span><div class="r-skill-bar"><div class="r-skill-fill" data-pct="65"></div></div></div>
+        </div>
+ 
+        <div class="r-skills-group">
+          <div class="r-skills-group-label">Other</div>
+          <div class="r-skill-row"><span class="r-skill-name">Git</span><div class="r-skill-bar"><div class="r-skill-fill" data-pct="88"></div></div></div>
+          <div class="r-skill-row"><span class="r-skill-name">Node.js</span><div class="r-skill-bar"><div class="r-skill-fill" data-pct="72"></div></div></div>
+          <div class="r-skill-row"><span class="r-skill-name">Supabase</span><div class="r-skill-bar"><div class="r-skill-fill" data-pct="60"></div></div></div>
+        </div>
+      </div>
+ 
+      <!-- EDUCATION -->
+      <div class="r-section">
+        <div class="r-section-title">Education</div>
+ 
+        <div class="r-edu-item">
+          <span class="r-edu-deg">B.Sc. Computer Science</span>
+          <span class="r-edu-school">Your University</span>
+          <span class="r-edu-year">2019 — 2023</span>
+        </div>
+ 
+        <div class="r-edu-item">
+          <span class="r-edu-deg">UI/UX Certificate</span>
+          <span class="r-edu-school">Online Course / Platform</span>
+          <span class="r-edu-year">2022</span>
+        </div>
+ 
+      </div>
+ 
+      <!-- LANGUAGES / EXTRAS -->
+      <div class="r-section">
+        <div class="r-section-title">Extras</div>
+        <div style="font-family:'Caveat',cursive;font-size:.95rem;color:var(--text-mid);line-height:1.8;">
+          English — Fluent<br/>
+          [Language] — [Level]<br/>
+          Available for remote ✦<br/>
+          Open to relocation
+        </div>
+      </div>
+ 
+    </div><!-- /r-right -->
+  </div><!-- /r-body -->
+ 
+  <!-- available stamp -->
+  <div class="resume-stamp rs-available">AVAILABLE FOR HIRE</div>
+ 
+</div><!-- /resume-sheet -->
+</div><!-- /page-wrap -->
+ 
+<div class="scroll-hint">SCROLL ↓</div>
+ 
+<script>
+gsap.registerPlugin(ScrollTrigger);
+ 
+/* ── MARQUEE ── */
+const mI = ['RESUME','EXPERIENCE','SKILLS','PROJECTS','EDUCATION','OPEN TO WORK','HIRE ME','CREATIVE DEV','UI DESIGN','FRONTEND'];
+document.getElementById('m-track').innerHTML = (mI.map(t =>
+  `<span class="marquee-item"><span class="t">${t}</span><span class="s">✦</span></span>`
+).join('')).repeat(2);
+ 
+/* ── CURSOR + TRAIL ── */
+const cursor = document.getElementById('cursor');
+let mx = window.innerWidth/2, my = window.innerHeight/2;
+document.addEventListener('mousemove', e => {
+  mx=e.clientX; my=e.clientY;
+  gsap.to(cursor,{x:mx,y:my,duration:.12,ease:'power2.out'});
+});
+const TC=10, tC=['#e83a2f','#f5d278','#5ba8d8','#b8ff50','#f07aad','#fff'];
+const dots=[];
+for(let i=0;i<TC;i++){
+  const d=document.createElement('div'); d.className='trail-dot';
+  const sz=13-i*.9;
+  d.style.cssText=`width:${sz}px;height:${sz}px;background:${tC[i%tC.length]};opacity:${.85-i*.07}`;
+  document.body.appendChild(d); dots.push({el:d,x:mx,y:my});
+}
+(function trail(){
+  let lx=mx,ly=my;
+  dots.forEach((t,i)=>{const s=.28-i*.018;t.x+=(lx-t.x)*s;t.y+=(ly-t.y)*s;gsap.set(t.el,{x:t.x,y:t.y});lx=t.x;ly=t.y;});
+  requestAnimationFrame(trail);
+})();
+document.querySelectorAll('.back-btn,.dl-btn,.r-project-link,.r-contact-item,.r-tag').forEach(el=>{
+  el.addEventListener('mouseenter',()=>gsap.to(cursor,{scale:1.7,duration:.2}));
+  el.addEventListener('mouseleave',()=>gsap.to(cursor,{scale:1,duration:.2}));
+});
+ 
+/* ── BACK ── */
+gsap.from('.back-btn',{x:-30,opacity:0,duration:.6,ease:'back.out(1.8)',delay:.1});
+gsap.from('.dl-btn',  {x:30, opacity:0,duration:.6,ease:'back.out(1.8)',delay:.15});
+document.querySelector('.back-btn').addEventListener('click', e=>{
+  e.preventDefault();
+  gsap.to('.page-wrap',{opacity:0,y:-20,duration:.35,ease:'power2.in',
+    onComplete:()=>window.location.href='index.html'});
+});
+ 
+/* ── PDF DOWNLOAD ── */
+document.getElementById('dl-btn').addEventListener('click', ()=>{
+  gsap.to('#dl-btn',{scale:.95,duration:.1,yoyo:true,repeat:1});
+  window.print();
+});
+ 
+/* ── ENTRANCE ── */
+const tl = gsap.timeline({defaults:{ease:'power3.out'}});
+tl.from('#resume-sheet',{y:50,opacity:0,rotation:0,duration:.8,ease:'back.out(1.3)'},.1)
+  .from('.tape',{scaleX:0,opacity:0,duration:.35,stagger:.08,ease:'back.out(1.8)'},.7)
+  .from('.r-header',{y:20,opacity:0,duration:.5},.5)
+  .from('.r-section-title',{x:-15,opacity:0,duration:.4,stagger:.08},.7)
+  .from('.r-item',{y:15,opacity:0,duration:.4,stagger:.06},.8)
+  .from('.r-project',{x:10,opacity:0,duration:.4,stagger:.08},.85)
+  .from('.r-edu-item',{x:10,opacity:0,duration:.35,stagger:.07},.9);
+ 
+/* ── SKILL BARS ── */
+document.querySelectorAll('.r-skill-fill').forEach(bar=>{
+  const pct=parseInt(bar.dataset.pct);
+  ScrollTrigger.create({
+    trigger:bar, start:'top 95%', once:true,
+    onEnter(){ gsap.to(bar,{width:pct+'%',duration:.9,ease:'power2.out'}); }
+  });
+});
+ 
+/* ── SUBTLE SHEET TILT ── */
+const sheet = document.getElementById('resume-sheet');
+document.addEventListener('mousemove', e=>{
+  const rx = (e.clientX/window.innerWidth  - .5) * 2.5;
+  const ry = (e.clientY/window.innerHeight - .5) * -1.5;
+  gsap.to(sheet,{rotateY:rx,rotateX:ry,duration:.8,ease:'power1.out',transformPerspective:1200});
+});
+ 
+/* ── PROJECT HOVER ── */
+document.querySelectorAll('.r-project').forEach(p=>{
+  p.addEventListener('mouseenter',()=>gsap.to(p,{x:4,duration:.2,ease:'power2.out'}));
+  p.addEventListener('mouseleave',()=>gsap.to(p,{x:0,duration:.3,ease:'back.out(1.4)'}));
+});
+ 
+/* ── EXPERIENCE ITEM HOVER ── */
+document.querySelectorAll('.r-item').forEach(item=>{
+  item.addEventListener('mouseenter',()=>gsap.to(item,{x:4,duration:.2}));
+  item.addEventListener('mouseleave',()=>gsap.to(item,{x:0,duration:.3,ease:'back.out(1.4)'}));
+});
+</script>
+</body>
+</html>
