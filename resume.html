@@ -224,7 +224,13 @@
  
 <script>
 gsap.registerPlugin(ScrollTrigger);
- 
+
+/* ── MOBILE DETECTION ── */
+const isMobile = () => {
+  return window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
+         window.innerWidth < 768;
+};
+
 /* ── MARQUEE ── */
 const mI = ['RESUME','EXPERIENCE','SKILLS','PROJECTS','EDUCATION','OPEN TO WORK','HIRE ME','CREATIVE DEV','UI DESIGN','FRONTEND'];
 document.getElementById('m-track').innerHTML = (mI.map(t =>
@@ -289,26 +295,57 @@ document.querySelectorAll('.r-skill-fill').forEach(bar=>{
     onEnter(){ gsap.to(bar,{width:pct+'%',duration:.9,ease:'power2.out'}); }
   });
 });
- 
-/* ── SUBTLE SHEET TILT ── */
-const sheet = document.getElementById('resume-sheet');
-document.addEventListener('mousemove', e=>{
-  const rx = (e.clientX/window.innerWidth  - .5) * 2.5;
-  const ry = (e.clientY/window.innerHeight - .5) * -1.5;
-  gsap.to(sheet,{rotateY:rx,rotateX:ry,duration:.8,ease:'power1.out',transformPerspective:1200});
-});
- 
-/* ── PROJECT HOVER ── */
-document.querySelectorAll('.r-project').forEach(p=>{
-  p.addEventListener('mouseenter',()=>gsap.to(p,{x:4,duration:.2,ease:'power2.out'}));
-  p.addEventListener('mouseleave',()=>gsap.to(p,{x:0,duration:.3,ease:'back.out(1.4)'}));
-});
- 
-/* ── EXPERIENCE ITEM HOVER ── */
-document.querySelectorAll('.r-item').forEach(item=>{
-  item.addEventListener('mouseenter',()=>gsap.to(item,{x:4,duration:.2}));
-  item.addEventListener('mouseleave',()=>gsap.to(item,{x:0,duration:.3,ease:'back.out(1.4)'}));
-});
+
+/* ── SUBTLE SHEET TILT (Desktop Only) ── */
+if (!isMobile()) {
+  const sheet = document.getElementById('resume-sheet');
+  document.addEventListener('mousemove', e=>{
+    const rx = (e.clientX/window.innerWidth  - .5) * 2.5;
+    const ry = (e.clientY/window.innerHeight - .5) * -1.5;
+    gsap.to(sheet,{rotateY:rx,rotateX:ry,duration:.8,ease:'power1.out',transformPerspective:1200});
+  });
+
+  /* ── PROJECT HOVER (Desktop Only) ── */
+  document.querySelectorAll('.r-project').forEach(p=>{
+    p.addEventListener('mouseenter',()=>gsap.to(p,{x:4,duration:.2,ease:'power2.out'}));
+    p.addEventListener('mouseleave',()=>gsap.to(p,{x:0,duration:.3,ease:'back.out(1.4)'}));
+  });
+
+  /* ── EXPERIENCE ITEM HOVER (Desktop Only) ── */
+  document.querySelectorAll('.r-item').forEach(item=>{
+    item.addEventListener('mouseenter',()=>gsap.to(item,{x:4,duration:.2}));
+    item.addEventListener('mouseleave',()=>gsap.to(item,{x:0,duration:.3,ease:'back.out(1.4)'}));
+  });
+}
+
+/* ── EXPERIENCE ITEM HOVER (Desktop) wrapper is above */
+</script>
+
+<script>
+/* MOBILE SPECIFIC ENHANCEMENTS */
+if (isMobile()) {
+  const cursor = document.getElementById('cursor');
+  if (cursor) cursor.style.display = 'none';
+  document.querySelectorAll('.trail-dot').forEach(d => d.remove());
+  
+  document.querySelectorAll('.back-btn, .dl-btn, .r-project-link, .r-contact-item, .r-tag').forEach(el => {
+    el.addEventListener('touchstart', () => {
+      gsap.to(el, { scale: 0.95, duration: 0.1 });
+    });
+    el.addEventListener('touchend', () => {
+      gsap.to(el, { scale: 1, duration: 0.2, ease: 'back.out(1.5)' });
+    });
+  });
+  
+  document.querySelectorAll('.r-item, .r-project').forEach(el => {
+    el.addEventListener('touchstart', () => {
+      gsap.to(el, { opacity: 0.8, duration: 0.1 });
+    });
+    el.addEventListener('touchend', () => {
+      gsap.to(el, { opacity: 1, duration: 0.2 });
+    });
+  });
+}
 </script>
 </body>
 </html>

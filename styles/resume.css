@@ -339,3 +339,575 @@
     .page-wrap { padding:0; max-width:100%; }
     .r-skill-fill { print-color-adjust:exact; -webkit-print-color-adjust:exact; }
   }
+
+  /* ═══════════════════════════════
+     MOBILE RESPONSIVE STYLES
+  ═══════════════════════════════ */
+
+  /* Hide custom cursor on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    body {
+      cursor: auto;
+    }
+    #cursor,
+    .trail-dot {
+      display: none;
+    }
+    .back-btn,
+    .dl-btn,
+    .r-contact-item,
+    .r-tag,
+    .r-project-link {
+      cursor: pointer;
+    }
+  }
+
+  /* Tablet styles (768px and below) */
+  @media (max-width: 768px) {
+    /* Page wrapper optimized */
+    .page-wrap {
+      padding: 60px 24px 60px;
+      max-width: 100%;
+    }
+
+    /* Resume sheet full width */
+    .resume-sheet {
+      box-shadow: 6px 8px 0 rgba(0,0,0,0.12);
+    }
+
+    /* Two columns remain but adjusted */
+    .r-body {
+      grid-template-columns: 1fr 200px;
+      gap: 20px;
+    }
+
+    /* Left column padding reduced */
+    .r-left {
+      padding: 20px 20px 28px 70px;
+    }
+
+    /* Right column compressed */
+    .r-right {
+      padding: 20px 20px 28px 16px;
+      gap: 20px;
+    }
+
+    /* Header optimized */
+    .r-header {
+      padding: 28px 28px 20px 70px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .r-contacts {
+      text-align: left;
+      width: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .r-contact-item {
+      justify-content: flex-start;
+    }
+
+    /* Resume sheet left line adjusted */
+    .resume-sheet::after {
+      left: 60px;
+    }
+
+    /* Timeline adjusted */
+    .r-section.has-timeline {
+      margin-left: 4px;
+    }
+
+    /* Name smaller */
+    .r-name {
+      font-size: 2.2rem;
+    }
+
+    /* Section titles smaller */
+    .r-section-title {
+      font-size: 0.9rem;
+    }
+
+    /* Item spacing optimized */
+    .r-item {
+      margin-bottom: 16px;
+    }
+
+    /* Projects */
+    .r-project {
+      padding: 10px 12px;
+      margin-bottom: 14px;
+    }
+
+    /* Top bar optimized */
+    .top-bar {
+      padding: 8px 20px;
+    }
+
+    .back-btn,
+    .dl-btn {
+      font-size: 0.9rem;
+      padding: 4px 12px;
+    }
+
+    /* Marquee smaller */
+    .marquee-item {
+      font-size: 1rem;
+    }
+
+    /* Stamp */
+    .resume-stamp {
+      font-size: 0.55rem;
+    }
+
+    /* Tape smaller */
+    .t-tl, .t-tr {
+      width: 54px;
+      height: 18px;
+    }
+  }
+
+  /* Mobile styles (600px and below) */
+  @media (max-width: 600px) {
+    /* Two columns stack to single column */
+    .r-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Remove right margin line */
+    .r-left {
+      border-right: none;
+      padding: 20px 16px 24px 16px;
+    }
+
+    /* Right column becomes full width */
+    .r-right {
+      padding: 24px 16px 28px 16px;
+      gap: 24px;
+      background: rgba(0,0,0,0.02);
+      margin: 0 4px;
+      border-radius: 4px;
+    }
+
+    /* Resume sheet styling */
+    .resume-sheet {
+      box-shadow: 4px 6px 0 rgba(0,0,0,0.10);
+    }
+
+    .resume-sheet::after {
+      display: none; /* Remove left margin line on mobile */
+    }
+
+    /* Header fully stacked */
+    .r-header {
+      padding: 24px 16px 20px 16px;
+      gap: 14px;
+    }
+
+    .r-name {
+      font-size: 1.8rem;
+    }
+
+    .r-role {
+      font-size: 0.95rem;
+    }
+
+    /* Contacts in a row */
+    .r-contacts {
+      gap: 10px;
+    }
+
+    .r-contact-item {
+      font-size: 0.6rem;
+      padding: 2px 6px;
+      background: rgba(0,0,0,0.03);
+      border-radius: 3px;
+    }
+
+    .r-contact-item .ci-icon {
+      width: 16px;
+      height: 16px;
+      font-size: 0.75rem;
+    }
+
+    /* Section spacing */
+    .r-section {
+      margin-bottom: 24px;
+    }
+
+    .r-section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Section titles */
+    .r-section-title {
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+
+    /* Timeline adjustments */
+    .r-section.has-timeline {
+      padding-left: 0;
+      border-left: none;
+      margin-left: 0;
+    }
+
+    .r-left .r-item::before {
+      left: -18px;
+    }
+
+    /* Item styling */
+    .r-item {
+      margin-bottom: 14px;
+      padding-left: 14px;
+    }
+
+    /* Item header mobile */
+    .r-item-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .r-item-title {
+      font-size: 0.78rem;
+    }
+
+    .r-item-date {
+      font-size: 0.75rem;
+    }
+
+    .r-item-sub {
+      font-size: 0.6rem;
+      margin-bottom: 4px;
+    }
+
+    .r-item-desc {
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    /* Tags mobile */
+    .r-item-tags {
+      margin-top: 4px;
+      gap: 3px;
+    }
+
+    .r-tag {
+      font-size: 0.7rem;
+      padding: 1px 6px;
+      min-height: 20px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Skills mobile */
+    .r-skills-group {
+      margin-bottom: 12px;
+    }
+
+    .r-skills-group-label {
+      font-size: 0.68rem;
+      margin-bottom: 5px;
+      padding-bottom: 2px;
+    }
+
+    .r-skill-row {
+      margin-bottom: 4px;
+    }
+
+    .r-skill-name {
+      font-size: 0.6rem;
+      min-width: 70px;
+    }
+
+    .r-skill-bar {
+      height: 6px;
+    }
+
+    /* Education mobile */
+    .r-edu-item {
+      margin-bottom: 10px;
+    }
+
+    .r-edu-deg {
+      font-size: 0.68rem;
+    }
+
+    .r-edu-school {
+      font-size: 0.58rem;
+    }
+
+    .r-edu-year {
+      font-size: 0.7rem;
+    }
+
+    /* Projects mobile */
+    .r-project {
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      border-radius: 3px;
+    }
+
+    .r-project-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .r-project-name {
+      font-size: 0.75rem;
+    }
+
+    .r-project-link {
+      font-size: 0.7rem;
+    }
+
+    .r-project-desc {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      margin-bottom: 4px;
+    }
+
+    /* Top bar mobile */
+    .top-bar {
+      padding: 6px 16px;
+      top: 28px;
+    }
+
+    .back-btn {
+      font-size: 0.85rem;
+      padding: 4px 10px;
+      min-height: 32px;
+    }
+
+    .dl-btn {
+      font-size: 0.65rem;
+      padding: 4px 10px;
+      min-height: 32px;
+    }
+
+    /* Marquee mobile */
+    .marquee-item {
+      font-size: 0.9rem;
+      padding: 4px 0;
+    }
+
+    .marquee-item .s {
+      padding: 0 10px;
+    }
+
+    /* Stamp mobile */
+    .resume-stamp {
+      font-size: 0.5rem;
+      padding: 3px 8px;
+    }
+
+    .rs-available {
+      bottom: 20px;
+      right: 20px;
+      opacity: 0.18;
+    }
+
+    /* Scroll hint */
+    .scroll-hint {
+      font-size: 0.7rem;
+      bottom: 12px;
+      right: 12px;
+    }
+
+    /* Tape mobile */
+    .t-tl, .t-tr {
+      width: 48px;
+      height: 16px;
+      top: -10px;
+    }
+
+    .t-tl { left: 20px; }
+    .t-tr { right: 20px; }
+  }
+
+  /* Extra small mobile (400px and below) */
+  @media (max-width: 400px) {
+    /* Even more compact */
+    .page-wrap {
+      padding: 50px 12px 50px;
+    }
+
+    .r-header {
+      padding: 20px 12px 16px 12px;
+    }
+
+    .r-name {
+      font-size: 1.5rem;
+    }
+
+    .r-role {
+      font-size: 0.85rem;
+    }
+
+    /* Contacts wrap nicely */
+    .r-contacts {
+      gap: 8px;
+    }
+
+    .r-contact-item {
+      font-size: 0.55rem;
+      padding: 2px 5px;
+    }
+
+    /* Section titles */
+    .r-section-title {
+      font-size: 0.8rem;
+    }
+
+    /* Item spacing */
+    .r-section {
+      margin-bottom: 20px;
+    }
+
+    .r-item {
+      margin-bottom: 12px;
+      padding-left: 12px;
+    }
+
+    /* Text sizes */
+    .r-item-title {
+      font-size: 0.72rem;
+    }
+
+    .r-item-desc {
+      font-size: 0.9rem;
+    }
+
+    .r-item-date {
+      font-size: 0.7rem;
+    }
+
+    /* Tags */
+    .r-tag {
+      font-size: 0.65rem;
+      padding: 1px 5px;
+    }
+
+    /* Skills */
+    .r-skill-name {
+      font-size: 0.55rem;
+      min-width: 60px;
+    }
+
+    /* Projects */
+    .r-project {
+      padding: 8px 10px;
+    }
+
+    .r-project-name {
+      font-size: 0.7rem;
+    }
+
+    .r-project-desc {
+      font-size: 0.88rem;
+    }
+
+    /* Top bar */
+    .top-bar {
+      padding: 5px 12px;
+    }
+
+    .back-btn,
+    .dl-btn {
+      font-size: 0.75rem;
+      padding: 3px 8px;
+    }
+
+    .dl-btn {
+      font-size: 0.55rem;
+    }
+
+    /* Marquee */
+    .marquee-item {
+      font-size: 0.85rem;
+    }
+
+    /* Stamp */
+    .resume-stamp {
+      font-size: 0.45rem;
+      padding: 2px 6px;
+    }
+
+    /* Tape */
+    .t-tl, .t-tr {
+      width: 42px;
+      height: 14px;
+    }
+
+    .t-tl { left: 16px; }
+    .t-tr { right: 16px; }
+
+    /* Page wrap edges */
+    .r-right {
+      margin: 0 2px;
+      padding: 20px 12px 24px 12px;
+    }
+
+    .r-left {
+      padding: 16px 12px 20px 12px;
+    }
+  }
+
+  /* Landscape mobile (height < 600px) */
+  @media (max-height: 600px) and (orientation: landscape) {
+    /* Compact for landscape */
+    .page-wrap {
+      padding: 40px 20px 40px;
+    }
+
+    .r-header {
+      padding: 20px 20px 16px 20px;
+      gap: 12px;
+    }
+
+    .r-name {
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .r-role {
+      font-size: 0.9rem;
+    }
+
+    /* Section spacing reduced */
+    .r-section {
+      margin-bottom: 20px;
+    }
+
+    .r-item {
+      margin-bottom: 12px;
+    }
+
+    /* Right column compact */
+    .r-right {
+      gap: 16px;
+      padding: 16px 16px 20px 16px;
+    }
+
+    .r-left {
+      padding: 16px 20px 20px 20px;
+    }
+
+    /* Hide hint */
+    .scroll-hint {
+      display: none;
+    }
+
+    /* Opacity reduction for decorative elements */
+    .resume-stamp {
+      opacity: 0.12;
+    }
+  }

@@ -286,3 +286,401 @@
     z-index:20; animation:fade-hint 3.5s ease-in-out infinite 1.5s;
   }
   @keyframes fade-hint { 0%,100%{opacity:.38} 50%{opacity:.8} }
+
+  /* ═══════════════════════════════
+     MOBILE RESPONSIVE STYLES
+  ═══════════════════════════════ */
+
+  /* Hide custom cursor on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    body {
+      cursor: auto;
+    }
+    #cursor,
+    .trail-dot {
+      display: none;
+    }
+    .tab,
+    .panel-badge,
+    .marquee-wrap,
+    .name-stamp,
+    .status-chip {
+      cursor: pointer;
+    }
+  }
+
+  /* Tablet styles (768px and below) */
+  @media (max-width: 768px) {
+    /* Update CSS variables for responsive */
+    :root {
+      --folder-w: 400px;
+      --folder-h: 240px;
+      --tab-w: 90px;
+      --tab-h: 32px;
+    }
+
+    /* Folder stack scaled down */
+    .folder-stack {
+      width: var(--folder-w);
+      filter: drop-shadow(6px 10px 0 rgba(0,0,0,0.25));
+    }
+
+    /* Tab labels smaller */
+    .tab-label {
+      font-size: 0.72rem;
+    }
+
+    /* Panel content optimized */
+    .panel-title {
+      font-size: 1.6rem;
+    }
+
+    .panel-sub {
+      font-size: 0.58rem;
+    }
+
+    /* Name stamp smaller */
+    .name-stamp .n1 {
+      font-size: 1.1rem;
+    }
+    .name-stamp .n2 {
+      font-size: 0.9rem;
+    }
+
+    /* Status chip smaller */
+    .status-chip {
+      font-size: 0.8rem;
+      padding: 3px 12px;
+    }
+
+    /* Stickers smaller */
+    .stk-spin {
+      font-size: 2.5rem;
+    }
+    .stk-tag {
+      font-size: 0.78rem;
+      padding: 3px 11px;
+    }
+
+    /* Marquee smaller */
+    .marquee-item {
+      font-size: 1rem;
+    }
+
+    /* Clouds slightly smaller */
+    .c1 { width: 120px; height: 36px; }
+    .c1::before { width: 60px; height: 54px; top: -28px; }
+    .c1::after { width: 45px; height: 40px; top: -19px; }
+    .c2 { width: 85px; height: 28px; }
+    .c2::before { width: 42px; height: 39px; top: -22px; }
+    .c2::after { width: 34px; height: 31px; top: -15px; }
+    .c3 { width: 70px; height: 22px; }
+    .c3::before { width: 35px; height: 33px; top: -20px; }
+    .c3::after { width: 28px; height: 26px; top: -12px; }
+
+    /* Hint smaller */
+    .stk-hint {
+      font-size: 0.75rem;
+      bottom: 10px;
+    }
+
+    /* Panel badges smaller */
+    .panel-badge {
+      font-size: 0.78rem;
+      padding: 2px 10px;
+    }
+
+    /* WIP stamp smaller */
+    .wip-stamp {
+      font-size: 2.8rem;
+      padding: 6px 14px;
+    }
+  }
+
+  /* Mobile styles (480px and below) */
+  @media (max-width: 480px) {
+    /* Body allows proper scrolling if needed */
+    body {
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Update CSS variables for mobile */
+    :root {
+      --folder-w: 340px;
+      --folder-h: 200px;
+      --tab-w: calc(25% - 1px);
+      --tab-h: 36px;
+    }
+
+    /* Main area padding */
+    .main {
+      padding: 0 10px;
+    }
+
+    /* Folder stack fully responsive */
+    .folder-stack {
+      width: 100%;
+      max-width: var(--folder-w);
+      filter: drop-shadow(4px 8px 0 rgba(0,0,0,0.22));
+    }
+
+    /* Tab row optimized for mobile */
+    .tab-row {
+      gap: 1px;
+    }
+
+    .tab {
+      width: var(--tab-w);
+      border-radius: 6px 6px 0 0;
+      border-width: 2px;
+    }
+
+    .tab-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+    }
+
+    .tab.active {
+      height: calc(var(--tab-h) + 8px);
+    }
+
+    /* Folder body */
+    .folder-body {
+      height: var(--folder-h);
+      border-width: 2px;
+      border-radius: 0 4px 4px 4px;
+    }
+
+    /* Panel content mobile */
+    .panel {
+      padding: 20px 24px 24px 55px;
+    }
+
+    .panel-tag {
+      font-size: 0.75rem;
+      margin-bottom: 5px;
+    }
+
+    .panel-title {
+      font-size: 1.35rem;
+      line-height: 1.1;
+    }
+
+    .panel-sub {
+      font-size: 0.55rem;
+      line-height: 1.7;
+      margin-top: 8px;
+    }
+
+    /* Panel badges wrap nicely */
+    .panel-badges {
+      gap: 4px;
+      margin-top: 10px;
+    }
+
+    .panel-badge {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Name stamp positioned for mobile */
+    .name-stamp {
+      top: 10px;
+      left: 12px;
+      line-height: 1;
+    }
+    .name-stamp .n1 {
+      font-size: 0.95rem;
+    }
+    .name-stamp .n2 {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+    }
+
+    /* Status chip mobile */
+    .status-chip {
+      top: 10px;
+      right: 12px;
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      gap: 5px;
+    }
+    .status-chip .dot {
+      width: 5px;
+      height: 5px;
+    }
+
+    /* Stickers mobile */
+    .stk-spin {
+      font-size: 2rem;
+    }
+    .stk-tag {
+      font-size: 0.7rem;
+      padding: 3px 9px;
+    }
+
+    /* Hint at bottom */
+    .stk-hint {
+      font-size: 0.68rem;
+      bottom: 8px;
+      opacity: 0.5;
+    }
+
+    /* Marquee mobile */
+    .marquee-item {
+      font-size: 0.9rem;
+      padding: 4px 0;
+    }
+    .marquee-item .s {
+      padding: 0 10px;
+    }
+
+    /* WIP stamp mobile */
+    .wip-stamp {
+      font-size: 2.2rem;
+      padding: 5px 12px;
+      border-width: 5px;
+    }
+
+    /* Clouds mobile */
+    .c1 { width: 100px; height: 30px; }
+    .c1::before { width: 50px; height: 45px; top: -24px; }
+    .c1::after { width: 38px; height: 33px; top: -16px; }
+    .c2 { width: 70px; height: 24px; }
+    .c2::before { width: 35px; height: 32px; top: -18px; }
+    .c2::after { width: 28px; height: 25px; top: -12px; }
+    .c3 { width: 60px; height: 20px; }
+    .c3::before { width: 30px; height: 28px; top: -16px; }
+    .c3::after { width: 24px; height: 22px; top: -10px; }
+
+    /* Grass svg smaller */
+    #grass-svg {
+      height: 80px;
+    }
+
+    /* Doodles reduced opacity */
+    .doodle {
+      opacity: 0.5;
+    }
+  }
+
+  /* Extra small mobile (360px and below) */
+  @media (max-width: 360px) {
+    /* Even more compact */
+    :root {
+      --folder-w: 300px;
+      --folder-h: 180px;
+      --tab-h: 34px;
+    }
+
+    .main {
+      padding: 0 8px;
+    }
+
+    /* Tab labels very small */
+    .tab-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* Panel content compact */
+    .panel {
+      padding: 18px 20px 20px 48px;
+    }
+
+    .panel-title {
+      font-size: 1.2rem;
+    }
+
+    .panel-sub {
+      font-size: 0.52rem;
+    }
+
+    /* Name stamp minimal */
+    .name-stamp .n1 {
+      font-size: 0.85rem;
+    }
+    .name-stamp .n2 {
+      font-size: 0.68rem;
+    }
+
+    /* Status chip minimal */
+    .status-chip {
+      font-size: 0.65rem;
+      padding: 2px 8px;
+    }
+
+    /* Stickers minimal */
+    .stk-spin {
+      font-size: 1.8rem;
+    }
+    .stk-tag {
+      font-size: 0.65rem;
+      padding: 2px 8px;
+    }
+
+    /* Marquee minimal */
+    .marquee-item {
+      font-size: 0.85rem;
+    }
+
+    /* WIP stamp minimal */
+    .wip-stamp {
+      font-size: 1.9rem;
+      padding: 4px 10px;
+      border-width: 4px;
+    }
+
+    /* Panel badges minimal */
+    .panel-badge {
+      font-size: 0.65rem;
+      padding: 2px 7px;
+    }
+
+    /* Hint hidden on very small screens */
+    .stk-hint {
+      font-size: 0.6rem;
+      bottom: 6px;
+    }
+  }
+
+  /* Landscape mobile (height < 500px) */
+  @media (max-height: 500px) and (orientation: landscape) {
+    /* Compact for landscape */
+    :root {
+      --folder-h: 160px;
+      --tab-h: 28px;
+    }
+
+    .folder-stack {
+      transform: scale(0.85);
+    }
+
+    .name-stamp,
+    .status-chip {
+      top: 6px;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+    }
+
+    .stk-spin {
+      font-size: 1.5rem;
+    }
+
+    .stk-hint {
+      display: none;
+    }
+
+    /* Hide decorative elements for space */
+    #grass-svg {
+      height: 50px;
+    }
+
+    .c1, .c2, .c3 {
+      opacity: 0.6;
+    }
+  }
