@@ -174,7 +174,13 @@
  
 <script>
 gsap.registerPlugin(ScrollTrigger, Draggable);
- 
+
+/* ── MOBILE DETECTION ── */
+const isMobile = () => {
+  return window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
+         window.innerWidth < 768;
+};
+
 /* ════════════════════════════
    MARQUEE
 ════════════════════════════ */
@@ -371,6 +377,38 @@ polDots.forEach(d => d.addEventListener('click', e => {
 ════════════════════════════ */
 gsap.from('.tl-item', { x:20, opacity:0, duration:0.4, stagger:0.1, ease:'power2.out', scrollTrigger:{ trigger:'.timeline', start:'top 88%' } });
 gsap.from('.now-item', { y:15, opacity:0, duration:0.4, stagger:0.07, ease:'power2.out', scrollTrigger:{ trigger:'.card-now', start:'top 92%' } });
+
+/* ════════════════════════════
+   MOBILE ENHANCEMENTS
+═════════════════════════════ */
+
+/* Disable cursor animations on mobile for performance */
+if (isMobile()) {
+  const cursor = document.getElementById('cursor');
+  if (cursor) cursor.style.display = 'none';
+  document.querySelectorAll('.trail-dot').forEach(d => d.remove());
+  
+  /* Mobile touch feedback for interactive elements */
+  document.querySelectorAll('.card, .back-btn, .pol-dot, .skill-pill, .sticky').forEach(el => {
+    el.addEventListener('touchstart', () => {
+      gsap.to(el, { scale: 0.98, duration: 0.1 });
+    });
+    el.addEventListener('touchend', () => {
+      gsap.to(el, { scale: 1, duration: 0.2, ease: 'back.out(1.5)' });
+    });
+  });
+  
+  /* Mobile sticky notes - make static but interactive */
+  document.querySelectorAll('.sticky').forEach(sticky => {
+    sticky.addEventListener('touchstart', () => {
+      gsap.to(sticky, { scale: 1.05, boxShadow: '4px 5px 0 rgba(0,0,0,0.2)', duration: 0.15 });
+    });
+    
+    sticky.addEventListener('touchend', () => {
+      gsap.to(sticky, { scale: 1, boxShadow: '3px 4px 0 rgba(0,0,0,0.14)', duration: 0.2, ease: 'back.out(1.5)' });
+    });
+  });
+}
 </script>
 </body>
 </html>

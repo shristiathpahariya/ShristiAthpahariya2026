@@ -343,3 +343,342 @@
 
   /* ── FLOATING DOODLES ── */
   .doodle { position:fixed; pointer-events:none; user-select:none; font-family:'VT323',monospace; font-weight:900; z-index:4; will-change:transform; }
+
+  /* ═══════════════════════════════
+     MOBILE RESPONSIVE STYLES
+  ═══════════════════════════════ */
+
+  /* Hide custom cursor on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    body {
+      cursor: auto;
+    }
+    #cursor,
+    .trail-dot {
+      display: none;
+    }
+    .field input,
+    .field textarea,
+    .back-btn,
+    .send-btn,
+    .social-stamp {
+      cursor: pointer;
+    }
+  }
+
+  /* Tablet styles (768px and below) */
+  @media (max-width: 768px) {
+    /* Envelope scene - stack vertically */
+    .envelope-scene {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: 100%;
+    }
+
+    /* Letter takes full width */
+    .letter {
+      width: 100%;
+      max-width: 500px;
+      padding: 28px 24px 24px;
+    }
+
+    /* Sidebar takes full width */
+    .sidebar {
+      width: 100%;
+      max-width: 500px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Stamp cards take full width */
+    .stamp-card,
+    .address-card {
+      width: 100%;
+      max-width: 280px;
+    }
+
+    /* Social stamps in grid layout */
+    .social-stamps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    /* Main area padding */
+    .main {
+      padding: 10px 16px;
+    }
+
+    /* Back button smaller */
+    .back-btn {
+      top: 12px;
+      left: 12px;
+      padding: 4px 12px;
+      font-size: 0.9rem;
+    }
+
+    /* Letter header smaller */
+    .letter-header {
+      padding-right: 70px;
+    }
+
+    .letter-header h1 {
+      font-size: 1.6rem;
+    }
+
+    /* Form fields stack better */
+    .field-row {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Send button full width on tablet */
+    .send-btn {
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 0.82rem;
+    }
+
+    /* Postmark smaller */
+    .postmark {
+      width: 60px;
+      height: 60px;
+      top: 14px;
+      right: 18px;
+    }
+  }
+
+  /* Mobile styles (480px and below) */
+  @media (max-width: 480px) {
+    /* Body allows proper scrolling */
+    body {
+      height: auto;
+      min-height: 100vh;
+      overflow-y: auto;
+    }
+
+    /* Main area takes full width */
+    .main {
+      padding: 8px 12px;
+      overflow-y: auto;
+      min-height: 0;
+    }
+
+    /* Envelope scene fully vertical */
+    .envelope-scene {
+      gap: 16px;
+      padding: 8px 0 20px;
+    }
+
+    /* Letter optimized for mobile */
+    .letter {
+      padding: 24px 20px 20px;
+      border-radius: 3px;
+      box-shadow: 4px 6px 0 rgba(0,0,0,0.15);
+    }
+
+    /* Remove rotation on mobile for better alignment */
+    .letter {
+      transform: none;
+    }
+
+    /* Postmark positioned for mobile */
+    .postmark {
+      width: 50px;
+      height: 50px;
+      top: 12px;
+      right: 12px;
+    }
+    .postmark .pm-city { font-size: 0.55rem; }
+    .postmark .pm-date { font-size: 0.6rem; }
+    .postmark .pm-lines { font-size: 0.45rem; }
+
+    /* Letter header for mobile */
+    .letter-header {
+      margin-bottom: 16px;
+      padding-right: 60px;
+    }
+    .letter-header .eyebrow { font-size: 0.72rem; }
+    .letter-header h1 { font-size: 1.4rem; }
+
+    /* Greeting text smaller */
+    .letter-greeting {
+      font-size: 1rem;
+      margin-bottom: 16px;
+      line-height: 1.55;
+    }
+
+    /* Form styling for mobile */
+    .form {
+      gap: 14px;
+    }
+
+    /* Labels and inputs for mobile */
+    .field label {
+      font-size: 0.7rem;
+    }
+
+    .field input,
+    .field textarea {
+      font-size: 1rem;
+      padding: 6px 2px;
+    }
+
+    /* Textarea taller for better typing */
+    .field textarea {
+      height: 100px;
+    }
+
+    /* Send button with better touch target */
+    .send-btn {
+      width: 100%;
+      min-height: 48px;
+      padding: 14px 24px;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Success message */
+    .send-success {
+      font-size: 1rem;
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* Sidebar full width */
+    .sidebar {
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+
+    /* Stamp cards full width */
+    .stamp-card,
+    .address-card {
+      width: 100%;
+      padding: 14px;
+    }
+
+    /* Social stamps single column on very small screens */
+    .social-stamps {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    /* Social stamps larger touch targets */
+    .social-stamp {
+      padding: 10px 12px;
+      min-height: 48px;
+    }
+
+    .stamp-icon {
+      width: 32px;
+      height: 32px;
+      font-size: 1.1rem;
+    }
+
+    .stamp-name {
+      font-size: 0.7rem;
+    }
+
+    .stamp-handle {
+      font-size: 0.9rem;
+    }
+
+    /* Address card styling */
+    .address-card .addr-label { font-size: 0.65rem; }
+    .address-card .addr-name { font-size: 0.8rem; }
+    .address-card .addr-line { font-size: 0.85rem; }
+
+    /* Tape strips smaller */
+    .tape-tl,
+    .tape-tr {
+      width: 50px;
+      height: 18px;
+    }
+
+    /* Marquee text smaller */
+    .marquee-item {
+      font-size: 0.95rem;
+      padding: 4px 0;
+    }
+
+    /* Back button optimized for mobile */
+    .back-btn {
+      top: 10px;
+      left: 10px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      min-height: 36px;
+    }
+
+    /* Tape strip in stamp card */
+    .stamp-card .tape-strip {
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 16px;
+    }
+
+    /* Doodle sizes reduced for mobile */
+    .doodle {
+      opacity: 0.08;
+    }
+  }
+
+  /* Extra small mobile (360px and below) */
+  @media (max-width: 360px) {
+    /* Even more compact */
+    .main {
+      padding: 6px 10px;
+    }
+
+    .letter {
+      padding: 20px 16px 18px;
+    }
+
+    .letter-header h1 {
+      font-size: 1.2rem;
+    }
+
+    .letter-greeting {
+      font-size: 0.95rem;
+    }
+
+    .field input,
+    .field textarea {
+      font-size: 0.95rem;
+    }
+
+    .send-btn {
+      font-size: 0.8rem;
+      padding: 12px 20px;
+    }
+
+    .social-stamp {
+      padding: 8px 10px;
+    }
+
+    .stamp-icon {
+      width: 28px;
+      height: 28px;
+      font-size: 0.95rem;
+    }
+
+    .postmark {
+      width: 45px;
+      height: 45px;
+      top: 10px;
+      right: 10px;
+    }
+
+    /* Marquee even smaller */
+    .marquee-item {
+      font-size: 0.85rem;
+    }
+  }

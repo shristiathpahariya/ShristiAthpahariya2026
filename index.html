@@ -116,6 +116,12 @@
 </div>
  
 <script>
+/* ── MOBILE DETECTION ── */
+const isMobile = () => {
+  return window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
+         window.innerWidth < 768;
+};
+
 /* ═══════════════════════════════
    MARQUEE
 ═══════════════════════════════ */
@@ -151,53 +157,55 @@ document.getElementById('bot-track').innerHTML  = buildTrack(botItems,'★');
   }
   svg.innerHTML = html;
 })();
- 
+
 /* ═══════════════════════════════
-   CUSTOM CURSOR
+   CUSTOM CURSOR (Desktop Only)
 ═══════════════════════════════ */
-const cursor = document.getElementById('cursor');
-let mx = window.innerWidth/2, my = window.innerHeight/2;
- 
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  gsap.to(cursor, { x: mx, y: my, duration: 0.12, ease: 'power2.out' });
-});
- 
-/* ═══════════════════════════════
-   CURSOR TRAIL
-═══════════════════════════════ */
-const TRAIL_COUNT = 12;
-const trailColors = ['#e83a2f','#f5d278','#5ba8d8','#b8ff50','#f07aad','#ffffff'];
-const trailDots = [];
- 
-for (let i = 0; i < TRAIL_COUNT; i++) {
-  const dot = document.createElement('div');
-  dot.className = 'trail-dot';
-  const size = 14 - i * 0.8;
-  dot.style.cssText = `width:${size}px;height:${size}px;background:${trailColors[i % trailColors.length]};opacity:${0.9 - i * 0.06};`;
-  document.body.appendChild(dot);
-  trailDots.push({ el: dot, x: mx, y: my });
-}
- 
-function animateTrail() {
-  let lx = mx, ly = my;
-  trailDots.forEach((t, i) => {
-    const speed = 0.28 - i * 0.015;
-    t.x += (lx - t.x) * speed;
-    t.y += (ly - t.y) * speed;
-    gsap.set(t.el, { x: t.x, y: t.y });
-    lx = t.x; ly = t.y;
+if (!isMobile()) {
+  const cursor = document.getElementById('cursor');
+  let mx = window.innerWidth/2, my = window.innerHeight/2;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    gsap.to(cursor, { x: mx, y: my, duration: 0.12, ease: 'power2.out' });
   });
-  requestAnimationFrame(animateTrail);
+
+  /* ═══════════════════════════════
+     CURSOR TRAIL (Desktop Only)
+  ═══════════════════════════════ */
+  const TRAIL_COUNT = 12;
+  const trailColors = ['#e83a2f','#f5d278','#5ba8d8','#b8ff50','#f07aad','#ffffff'];
+  const trailDots = [];
+
+  for (let i = 0; i < TRAIL_COUNT; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'trail-dot';
+    const size = 14 - i * 0.8;
+    dot.style.cssText = `width:${size}px;height:${size}px;background:${trailColors[i % trailColors.length]};opacity:${0.9 - i * 0.06};`;
+    document.body.appendChild(dot);
+    trailDots.push({ el: dot, x: mx, y: my });
+  }
+
+  function animateTrail() {
+    let lx = mx, ly = my;
+    trailDots.forEach((t, i) => {
+      const speed = 0.28 - i * 0.015;
+      t.x += (lx - t.x) * speed;
+      t.y += (ly - t.y) * speed;
+      gsap.set(t.el, { x: t.x, y: t.y });
+      lx = t.x; ly = t.y;
+    });
+    requestAnimationFrame(animateTrail);
+  }
+  animateTrail();
+
+  /* cursor scale on hover interactive elements */
+  document.querySelectorAll('.tab, .panel-badge, .marquee-wrap, .name-stamp, .status-chip').forEach(el => {
+    el.addEventListener('mouseenter', () => gsap.to(cursor, { scale: 1.8, duration: 0.2 }));
+    el.addEventListener('mouseleave', () => gsap.to(cursor, { scale: 1,   duration: 0.2 }));
+  });
 }
-animateTrail();
- 
-/* cursor scale on hover interactive elements */
-document.querySelectorAll('.tab, .panel-badge, .marquee-wrap, .name-stamp, .status-chip').forEach(el => {
-  el.addEventListener('mouseenter', () => gsap.to(cursor, { scale: 1.8, duration: 0.2 }));
-  el.addEventListener('mouseleave', () => gsap.to(cursor, { scale: 1,   duration: 0.2 }));
-});
- 
+
 /* ═══════════════════════════════
    PARALLAX DOODLES
 ═══════════════════════════════ */
@@ -316,6 +324,36 @@ tabs.forEach(tab => {
     }
   });
 });
+</script>
+
+<script>
+/* ═══════════════════════════════
+   MOBILE SPECIFIC ENHANCEMENTS
+═══════════════════════════════ */
+
+/* Mobile touch feedback */
+if (isMobile()) {
+  /* Hide custom cursor elements */
+  const cursor = document.getElementById('cursor');
+  if (cursor) cursor.style.display = 'none';
+  document.querySelectorAll('.trail-dot').forEach(d => d.remove());
+  
+  /* Add touch feedback to tabs and interactive elements */
+  document.querySelectorAll('.tab, .panel-badge, .name-stamp, .status-chip').forEach(el => {
+    el.addEventListener('touchstart', () => {
+      gsap.to(el, { scale: 0.95, duration: 0.1 });
+    });
+    el.addEventListener('touchend', () => {
+      gsap.to(el, { scale: 1, duration: 0.2, ease: 'back.out(1.5)' });
+    });
+  });
+  
+  /* Make hint text more visible on mobile */
+  const hint = document.querySelector('.stk-hint');
+  if (hint) {
+    hint.textContent = 'Tap tabs to explore · Tap to open';
+  }
+}
 </script>
 </body>
 </html>

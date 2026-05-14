@@ -206,3 +206,484 @@
   /* ── SCROLL HINT ── */
   .scroll-hint { position:fixed; bottom:16px; right:20px; z-index:200; font-family:'VT323',monospace; font-size:.8rem; letter-spacing:.12em; color:rgba(26,22,14,.4); animation:fade-hint 3s ease-in-out infinite 2s; }
   @keyframes fade-hint { 0%,100%{opacity:.4} 50%{opacity:.85} }
+
+  /* ═══════════════════════════════
+     MOBILE RESPONSIVE STYLES
+  ═══════════════════════════════ */
+
+  /* Hide custom cursor on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    body {
+      cursor: auto;
+    }
+    #cursor,
+    .trail-dot {
+      display: none;
+    }
+    .back-btn,
+    .card,
+    .polaroid,
+    .pol-dot,
+    .sticky {
+      cursor: pointer;
+    }
+  }
+
+  /* Tablet styles (768px and below) */
+  @media (max-width: 768px) {
+    /* Board - convert to single column */
+    .board {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding: 50px 30px 70px;
+    }
+
+    /* Cards stack vertically */
+    .card-bio,
+    .card-skills,
+    .card-facts,
+    .card-timeline,
+    .card-now {
+      grid-column: 1;
+      grid-row: auto;
+      width: 100%;
+      margin: 0 0 20px 0;
+    }
+
+    /* Bio card */
+    .card-bio {
+      padding: 28px 24px 24px;
+      margin-bottom: 20px;
+    }
+
+    /* Skills card */
+    .card-skills {
+      padding: 24px 20px 20px;
+    }
+
+    /* Skill groups layout */
+    .skill-groups {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .skill-group {
+      min-width: 100%;
+    }
+
+    /* Fun facts card */
+    .card-facts {
+      padding: 20px 18px 18px;
+    }
+
+    /* Sticky notes arranged better */
+    .sticky-field {
+      min-height: 280px;
+    }
+
+    .sticky {
+      width: calc(50% - 4px);
+    }
+
+    /* Timeline card */
+    .card-timeline {
+      padding: 20px 18px 20px;
+    }
+
+    /* Now card */
+    .card-now {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 24px;
+    }
+
+    .now-label {
+      border-right: none;
+      border-bottom: 2px dashed rgba(0,0,0,0.15);
+      padding-right: 0;
+      padding-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .now-items {
+      gap: 16px;
+    }
+
+    /* Back button */
+    .back-btn {
+      top: 12px;
+      left: 12px;
+      padding: 4px 12px;
+      font-size: 0.9rem;
+    }
+
+    /* Marquee */
+    .marquee-item {
+      font-size: 0.95rem;
+      padding: 4px 0;
+    }
+
+    /* Polaroid stack */
+    .polaroid-stack {
+      height: 180px;
+    }
+
+    /* Tape smaller */
+    .tape-top { width: 60px; height: 20px; }
+    .tape-tl, .tape-tr { width: 50px; height: 18px; }
+    .tape-corner { width: 40px; height: 16px; }
+
+    /* Bio header smaller */
+    .bio-header {
+      font-size: 2rem;
+    }
+
+    .bio-text {
+      font-size: 1.05rem;
+    }
+  }
+
+  /* Mobile styles (480px and below) */
+  @media (max-width: 480px) {
+    /* Board optimized */
+    .board {
+      padding: 40px 20px 60px;
+    }
+
+    /* Cards full width with better spacing */
+    .card {
+      border-width: 1.5px;
+      box-shadow: 3px 4px 0 rgba(0,0,0,0.12);
+    }
+
+    .card-bio {
+      padding: 24px 18px 20px;
+      margin-bottom: 16px;
+    }
+
+    /* Bio section compact */
+    .bio-header {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+
+    .bio-role {
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .bio-text {
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .bio-text p+p {
+      margin-top: 10px;
+    }
+
+    .bio-location {
+      font-size: 0.75rem;
+      margin-top: 12px;
+    }
+
+    /* Stamp smaller */
+    .stamp {
+      font-size: 0.5rem;
+      padding: 3px 8px;
+    }
+
+    /* Polaroid stack mobile */
+    .polaroid-stack {
+      height: 160px;
+      margin-bottom: 14px;
+    }
+
+    .polaroid-caption {
+      font-size: 0.85rem;
+      padding: 6px 8px 8px;
+    }
+
+    .pol-nav {
+      gap: 5px;
+    }
+
+    .pol-dot {
+      width: 8px;
+      height: 8px;
+    }
+
+    /* Skills card mobile */
+    .card-skills {
+      padding: 20px 16px 18px;
+      margin-bottom: 16px;
+    }
+
+    .skills-title {
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .skill-group-label {
+      font-size: 0.7rem;
+      margin-bottom: 6px;
+    }
+
+    /* Skill pills better for mobile */
+    .skill-pill {
+      padding: 6px 10px;
+      font-size: 0.62rem;
+      min-height: 36px;
+    }
+
+    .skill-name {
+      min-width: 70px;
+      font-size: 0.6rem;
+    }
+
+    .skill-bar {
+      height: 5px;
+    }
+
+    .skill-pct {
+      font-size: 0.75rem;
+      min-width: 28px;
+    }
+
+    /* Fun facts card mobile */
+    .card-facts {
+      padding: 18px 16px 16px;
+      margin-bottom: 16px;
+    }
+
+    .facts-title {
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .sticky-field {
+      min-height: 320px;
+    }
+
+    /* Sticky notes full width and larger touch targets */
+    .sticky {
+      width: calc(50% - 3px);
+      padding: 12px 10px;
+      min-height: 80px;
+      font-size: 0.9rem;
+    }
+
+    /* Sticky note navigation for mobile */
+    .sticky.s1 { top: 0;    left: 0;   }
+    .sticky.s2 { top: 5px;  left: 50%; }
+    .sticky.s3 { top: 88px; left: 0;   }
+    .sticky.s4 { top: 93px; left: 50%; }
+    .sticky.s5 { top: 176px; left: 0;  }
+    .sticky.s6 { top: 181px; left: 50%; }
+
+    .sticky-icon {
+      font-size: 1.1rem;
+    }
+
+    /* Timeline card mobile */
+    .card-timeline {
+      padding: 18px 16px 18px;
+      margin-bottom: 16px;
+    }
+
+    .timeline-title {
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .timeline {
+      padding-left: 18px;
+    }
+
+    .tl-item {
+      margin-bottom: 16px;
+    }
+
+    .tl-dot {
+      width: 9px;
+      height: 9px;
+      left: -8px;
+      top: 4px;
+    }
+
+    .timeline::before {
+      left: 2px;
+      top: 4px;
+      bottom: 4px;
+    }
+
+    .tl-year {
+      font-size: 0.75rem;
+    }
+
+    .tl-role {
+      font-size: 0.7rem;
+    }
+
+    .tl-place {
+      font-size: 0.9rem;
+    }
+
+    /* Now card mobile */
+    .card-now {
+      padding: 16px 18px;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .now-label {
+      font-size: 0.9rem;
+      padding-bottom: 8px;
+    }
+
+    .now-items {
+      gap: 12px;
+    }
+
+    .now-item {
+      gap: 2px;
+    }
+
+    .now-item-label {
+      font-size: 0.65rem;
+    }
+
+    .now-item-val {
+      font-size: 0.7rem;
+    }
+
+    /* Back button mobile */
+    .back-btn {
+      top: 10px;
+      left: 10px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      min-height: 36px;
+    }
+
+    /* Marquee mobile */
+    .marquee-item {
+      font-size: 0.9rem;
+      padding: 3px 0;
+    }
+
+    .marquee-item .s {
+      padding: 0 10px;
+    }
+
+    /* Section stamps mobile */
+    .section-stamp {
+      font-size: 0.65rem;
+      margin-bottom: 6px;
+    }
+
+    /* Tape mobile */
+    .tape-top { width: 50px; height: 16px; top: -10px; }
+    .tape-tl { width: 45px; height: 16px; top: -8px; left: 14px; }
+    .tape-tr { width: 45px; height: 16px; top: -8px; right: 14px; }
+    .tape-corner { width: 38px; height: 14px; top: -8px; left: 20px; }
+
+    /* Scroll hint mobile */
+    .scroll-hint {
+      font-size: 0.7rem;
+      bottom: 12px;
+      right: 12px;
+    }
+  }
+
+  /* Extra small mobile (360px and below) */
+  @media (max-width: 360px) {
+    /* Even more compact */
+    .board {
+      padding: 35px 16px 50px;
+    }
+
+    .card-bio,
+    .card-skills,
+    .card-facts,
+    .card-timeline,
+    .card-now {
+      padding: 18px 14px 16px;
+      margin-bottom: 14px;
+    }
+
+    /* Bio even smaller */
+    .bio-header {
+      font-size: 1.4rem;
+    }
+
+    .bio-text {
+      font-size: 0.95rem;
+    }
+
+    .bio-role {
+      font-size: 0.85rem;
+    }
+
+    /* Polaroid stack */
+    .polaroid-stack {
+      height: 140px;
+    }
+
+    .polaroid-caption {
+      font-size: 0.8rem;
+    }
+
+    /* Skills pill */
+    .skill-pill {
+      padding: 5px 8px;
+      font-size: 0.6rem;
+      min-height: 32px;
+    }
+
+    .skill-name {
+      min-width: 60px;
+    }
+
+    /* Sticky notes */
+    .sticky {
+      padding: 10px 8px;
+      min-height: 72px;
+      font-size: 0.85rem;
+    }
+
+    /* Timeline */
+    .timeline-title {
+      font-size: 0.85rem;
+    }
+
+    .tl-year {
+      font-size: 0.7rem;
+    }
+
+    /* Now card */
+    .now-label {
+      font-size: 0.85rem;
+    }
+
+    .now-item-val {
+      font-size: 0.68rem;
+    }
+
+    /* Marquee */
+    .marquee-item {
+      font-size: 0.85rem;
+    }
+
+    /* Back button */
+    .back-btn {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+    }
+
+    /* Section stamp */
+    .section-stamp {
+      font-size: 0.6rem;
+    }
+  }
