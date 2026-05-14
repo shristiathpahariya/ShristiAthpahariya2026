@@ -332,12 +332,27 @@
  
   /* ── PRINT STYLES ── */
   @media print {
-    body { cursor:auto; background:#fff; }
+    body {
+      cursor:auto;
+      background:#fff !important;
+      min-height:auto;
+    }
+    /* Hide all background elements */
+    body::before { display:none !important; }
     #grain, #cursor, .trail-dot, .marquee-wrap, .top-bar, .scroll-hint { display:none !important; }
-    .resume-sheet { box-shadow:none; transform:none; border:none; }
-    .resume-sheet::before { display:none; }
+    /* Clean up resume sheet */
+    .resume-sheet {
+      box-shadow:none;
+      transform:none;
+      border:none;
+      background:#fff !important;
+    }
+    .resume-sheet::before { display:none !important; }
     .page-wrap { padding:0; max-width:100%; }
+    /* Ensure color printing for skill bars */
     .r-skill-fill { print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+    /* Remove any extra margins */
+    @page { margin:0; }
   }
 
   /* ═══════════════════════════════
@@ -559,13 +574,14 @@
     }
 
     .r-left .r-item::before {
-      left: -18px;
+      left: 0;
     }
 
     /* Item styling */
     .r-item {
       margin-bottom: 14px;
-      padding-left: 14px;
+      padding-left: 18px;
+      position: relative;
     }
 
     /* Item header mobile */
@@ -774,7 +790,12 @@
 
     .r-item {
       margin-bottom: 12px;
-      padding-left: 12px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .r-left .r-item::before {
+      left: 0;
     }
 
     /* Text sizes */
